@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# copy -j some arguments here
+# copy to clipboard the string "some arguments here"
+#
+# copy command
+# it copy the result of a command to the clipboard and then displays it.
+#
+# dependencies:
+# xclip
+# install with sudo apt install xclip
+name=$(basename $0)
+
+if [ "$1" == '-h' ]; then
+	
+	echo "$name script"
+	echo "Usage:"
+	echo "$name -h"
+	echo "	Displays help page"
+	echo "$name -j some text"
+	echo '	Copy the string "some text" to clipboard'
+	echo "$name a_command"
+	echo "	Copy the output of the command a_command to clipboard"
+	echo
+	echo "Dependencies:"
+	echo "1. xclip"
+	echo "	sudo apt install xclip before using"
+else
+	if [ "$1" == '-j' ]; then
+		# copy the arguments as strings
+		s="${@:2}"
+		echo -n $s | xclip -selection c
+	else
+		# copy the output of argument
+		s="$@"
+		echo -n `$s` | xclip -selection c
+	fi
+	
+	xclip -selection c -o
+	echo
+fi
+
+
+
+
+
+
+
+
