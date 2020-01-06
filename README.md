@@ -1,2 +1,2 @@
-# my-python-alglib
-Collection of some common algorithms
+# a-shell-script-library
+Come in handy bash script collection
