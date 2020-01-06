@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for i in $*
+do
+    mv $i ~/.local/share/Trash/files/$i
+done
